@@ -72,6 +72,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'webchat.wsgi.application'
 ASGI_APPLICATION = 'webchat.routing.application'
 
+# mysite/settings.py
+# Channels
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
