@@ -5,7 +5,7 @@ const Contact = (props) => (
     <NavLink to={`${props.chatURL}`} style={{color: '#fff'}}>
         <li className="contact">
             <div className="wrap">
-                <span className="contact-status online"></span>
+                <span className={`contact-status ${props.status}`}></span>
                 <img src={props.picURL} alt="" />
                 <div className="meta">
                     <p className="name">{props.name}</p>
@@ -14,8 +14,6 @@ const Contact = (props) => (
             </div>
         </li>
     </NavLink>
-
-
-)
+);
 
 export default Contact;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Spin, Icon } from 'antd';
 import { connect } from 'react-redux';
-import * as actions from '../store/actions/auth';
 import Contact from '../components/Contact';
+import * as actions from '../store/actions/auth';
 
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 
@@ -100,17 +100,15 @@ class Sidepanel extends React.Component {
             <div id="contacts">
                 <ul>
                     <Contact 
-                    name="Louis Litt"
-                    status='Online'
-                    picURL='http://emilcarlsson.se/assets/louislitt.png'
-                    chatURL='/louis' 
-                    />
+                        name="Louis Litt" 
+                        picURL="http://emilcarlsson.se/assets/harveyspecter.png"
+                        status="online"
+                        chatURL="/louis" />
                     <Contact 
-                    name="Harvey Specter"
-                    status='active'
-                    picURL='http://emilcarlsson.se/assets/harveyspecter.png'
-                    chatURL='/harvey'
-                    />                    
+                        name="Harvey Specter" 
+                        picURL="http://emilcarlsson.se/assets/louislitt.png"
+                        status="busy"
+                        chatURL="/harvey" />
                 </ul>
             </div>
             <div id="bottom-bar">
