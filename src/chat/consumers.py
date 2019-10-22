@@ -29,11 +29,10 @@ class ChatConsumer(WebsocketConsumer):
         return self.send_chat_message(content)
 
     def messages_to_json(self, messages):
-        return [self.message_to_json(message) for message in messages]
-        #result = []
-        #for message in messages:
-        #    result.append(self.message_to_json(message))
-        #return result
+        result = []
+        for message in messages:
+            result.append(self.message_to_json(message))
+        return result
 
     def message_to_json(self, message):
         return {
