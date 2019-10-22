@@ -15,15 +15,15 @@ class Sidepanel extends React.Component {
         loginForm: true,
     }
 
-    componentDidMount() {
-        if (this.props.token !== null && this.props.username !== null) {
-            this.getUserChats(this.props.token, this.props.username);
-        }
-    }
-
     componentWillReceiveProps(newProps) {
         if (newProps.token !== null && newProps.username !== null) {
             this.getUserChats(newProps.token, newProps.username);
+        }
+    }
+
+    componentDidMount() {
+        if (this.props.token !== null && this.props.username !== null) {
+            this.getUserChats(this.props.token, this.props.username);
         }
     }
 
@@ -32,14 +32,8 @@ class Sidepanel extends React.Component {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`
         };
-
         axios.get(`http://127.0.0.1:8000/chat/?username=${username}`)
-        .then(res => {
-            console.log(res.data);
-            this.setState({
-                chats: res.data
-            });
-        });
+        .then(res => this.setState({ chats: res.data }));
     }
 
     changeForm = () => {

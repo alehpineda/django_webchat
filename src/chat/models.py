@@ -10,6 +10,7 @@ class Contact(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Message(models.Model):
     contact = models.ForeignKey(Contact, related_name='messages', on_delete=models.CASCADE)
     content = models.TextField()
@@ -18,9 +19,10 @@ class Message(models.Model):
     def __str__(self):
         return self.contact.user.username
 
+
 class Chat(models.Model):
     participants = models.ManyToManyField(Contact, related_name='chats')
     messages = models.ManyToManyField(Message, blank=True)
-    
+
     def __str__(self):
-        return f"{self.pk}"
+        return "{}".format(self.pk)
